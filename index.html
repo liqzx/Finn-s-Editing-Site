@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editing Tips & Tricks - Home</title>
+  <style>
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    /* Navigation */
+    nav {
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .nav-link {
+      padding: 8px 15px;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      background-color: #f0f0f0;
+    }
+    
+    .nav-link.active {
+      background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+      color: white;
+    }
+    
+    /* Hero Section */
+    .hero {
+      background-image: linear-gradient(135deg, rgba(58, 28, 113, 0.8), rgba(215, 109, 119, 0.8)), url('/api/placeholder/1200/600');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: white;
+      color: #333;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      margin: 0 10px 10px 0;
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      color: white;
+    }
+    
+    /* Main Content */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    
+    .section {
+      margin-bottom: 60px;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+      position: relative;
+    }
+    
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+      margin: 15px auto 0;
+    }
+    
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card-img {
+      height: 200px;
+      overflow: hidden;
+    }
+    
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .card:hover .card-img img {
+      transform: scale(1.05);
+    }
+    
+    .card-content {
+      padding: 25px;
+    }
+    
+    .card-title {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: #333;
+    }
+    
+    .card-text {
+      color: #666;
+      margin-bottom: 20px;
+    }
+    
+    /* Benefits Section */
+    .benefits {
+      background-color: #fff;
+      padding: 80px 0;
+    }
+    
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    
+    .benefit-icon {
+      min-width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 25px;
+      font-size: 2rem;
+    }
+    
+    .benefit-content h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    
+    .benefit-content p {
+      color: #666;
+    }
+    
+    /* Software Section */
+    .software-comparison {
+      background-color: #f5f7fa;
+      padding: 80px 0;
+    }
+    
+    .software-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .software-card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .software-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .software-card img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+    }
+    
+    .software-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: #333;
+    }
+    
+    .software-card p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+    
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    
+    .tag {
+      background: #f0f0f0;
+      padding: 5px 15px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      color: #666;
+    }
+    
+    /* CTA Section */
+    .cta {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+      color: white;
+    }
+    
+    .cta h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    
+    .cta p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+    
+    /* Footer */
+    footer {
+      background: #222;
+      color: white;
+      padding: 60px 20px 30px;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-column h3 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    
+    .footer-column h3:after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 2px;
+      background: #d76d77;
+      margin-top: 10px;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #ccc;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: white;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid #444;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .benefit-item {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .benefit-icon {
+        margin: 0 auto 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="home.html" class="logo">Editing Tips & Tricks</a>
+      <div class="nav-links">
+        <a href="home.html" class="nav-link active">Home</a>
+        <a href="index.html" class="nav-link">Get Started</a>
+        <a href="main.html" class="nav-link">Tutorials</a>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Master the Art of Video Editing</h1>
+      <p>Discover professional techniques, learn powerful tools, and unleash your creative potential with our comprehensive guides.</p>
+      <div class="hero-buttons">
+        <a href="index.html" class="btn btn-primary">Choose Your Software</a>
+        <a href="main.html" class="btn">Browse Tutorials</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Why Learn Editing Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Why Learn Video Editing?</h2>
+      <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">
+        Video editing is more than just a technical skill—it's a creative superpower that allows you to transform raw footage into compelling stories that captivate audiences.
+      </p>
+      
+      <div class="cards">
+        <div class="card">
+          <div class="card-img">
+            <img src="/api/placeholder/400/300" alt="Creative Expression">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Creative Expression</h3>
+            <p class="card-text">
+              Editing allows you to express your unique vision and style, turning ordinary footage into extraordinary visual experiences that reflect your creative perspective.
+            </p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-img">
+            <img src="/api/placeholder/400/300" alt="Career Opportunities">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Career Opportunities</h3>
+            <p class="card-text">
+              From social media content creation to film production, mastering editing skills opens doors to diverse and exciting career paths in the ever-growing digital media landscape.
+            </p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-img">
+            <img src="/api/placeholder/400/300" alt="Storytelling Power">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Storytelling Power</h3>
+            <p class="card-text">
+              Learn how pacing, transitions, and visual techniques can enhance narrative impact, allowing you to tell more compelling and emotionally resonant stories.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Benefits Section -->
+  <section class="benefits">
+    <div class="container">
+      <h2 class="section-title">Benefits of Mastering Editing Software</h2>
+      
+      <div class="benefit-item">
+        <div class="benefit-icon">🚀</div>
+        <div class="benefit-content">
+          <h3>Enhanced Workflow Efficiency</h3>
+          <p>
+            Learning the proper techniques and shortcuts doesn't just improve your editing quality—it dramatically reduces the time needed to complete projects. What once took days can be accomplished in hours, allowing you to take on more work or spend more time on creative aspects.
+          </p>
+        </div>
+      </div>
+      
+      <div class="benefit-item">
+        <div class="benefit-icon">🎨</div>
+        <div class="benefit-content">
+          <h3>Distinctive Visual Style</h3>
+          <p>
+            Advanced editing knowledge helps you develop a signature look that sets your work apart. From color grading to motion graphics, mastering these tools gives you the ability to create consistent, recognizable content that audiences associate with you or your brand.
+          </p>
+        </div>
+      </div>
+      
+      <div class="benefit-item">
+        <div class="benefit-icon">💡</div>
+        <div class="benefit-content">
+          <h3>Problem-Solving Skills</h3>
+          <p>
+            Editing is essentially creative problem-solving. Learning to work around technical limitations, fix footage issues, and achieve specific visual effects develops critical thinking abilities that transfer to many other areas of work and life.
+          </p>
+        </div>
+      </div>
+      
+      <div class="benefit-item">
+        <div class="benefit-icon">🌐</div>
+        <div class="benefit-content">
+          <h3>Cross-Platform Adaptability</h3>
+          <p>
+            Understanding fundamental editing principles allows you to quickly adapt to different software platforms. While each program has its unique interface, the core concepts remain similar, making it easier to transition between tools as needed for different projects.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Software Comparison -->
+  <section class="software-comparison">
+    <div class="container">
+      <h2 class="section-title">Choosing the Right Editing Software</h2>
+      <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">
+        Different editing platforms offer unique strengths. Understanding these differences helps you select the best tool for your specific needs and creative vision.
+      </p>
+      
+      <div class="software-grid">
+        <div class="software-card">
+          <img src="/api/placeholder/100/100" alt="Alight Motion Icon">
+          <h3>Alight Motion</h3>
+          <p>
+            Perfect for mobile creators who need professional motion graphics and visual effects capabilities while on the go.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Mobile</span>
+            <span class="tag">Motion Graphics</span>
+            <span class="tag">Keyframing</span>
+          </div>
+        </div>
+        
+        <div class="software-card">
+          <img src="/api/placeholder/100/100" alt="CapCut Icon">
+          <h3>CapCut</h3>
+          <p>
+            Ideal for social media content creators seeking quick, professional-looking edits with minimal learning curve.
+          </p>
+          <div class="tag-list">
+            <span class="tag">User-Friendly</span>
+            <span class="tag">Templates</span>
+            <span class="tag">Social Media</span>
+          </div>
+        </div>
+        
+        <div class="software-card">
+          <img src="/api/placeholder/100/100" alt="VideoStar Icon">
+          <h3>VideoStar</h3>
+          <p>
+            Specialized for creating music-synced content with unique effects chains and transitions popular in edit communities.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Music Sync</span>
+            <span class="tag">Effect Chains</span>
+            <span class="tag">Mobile</span>
+          </div>
+        </div>
+        
+        <div class="software-card">
+          <img src="/api/placeholder/100/100" alt="After Effects Icon">
+          <h3>After Effects</h3>
+          <p>
+            The industry standard for professional motion graphics, visual effects, and compositing for film and video production.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Professional</span>
+            <span class="tag">VFX</span>
+            <span class="tag">Expressions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="container">
+      <h2>Ready to Elevate Your Editing Skills?</h2>
+      <p>
+        Whether you're just starting out or looking to refine your techniques, we have tutorials and tips tailored to your needs. Choose your preferred software and begin your journey to editing mastery.
+      </p>
+      <a href="index.html" class="btn">Get Started Now</a>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Editing Tips & Tricks</h3>
+        <p>
+          Your ultimate resource for mastering video editing software and techniques to create professional-quality content.
+        </p>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="index.html">Get Started</a></li>
+          <li><a href="main.html#alight">Alight Motion</a></li>
+          <li><a href="main.html#capcut">CapCut</a></li>
+          <li><a href="main.html#videostar">VideoStar</a></li>
+          <li><a href="main.html#aftereffects">After Effects</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Resources</h3>
+        <ul class="footer-links">
+          <li><a href="#">Beginner Guides</a></li>
+          <li><a href="#">Advanced Techniques</a></li>
+          <li><a href="#">Effect Tutorials</a></li>
+          <li><a href="#">Editing Terms Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>&copy; 2025 Editing Tips & Tricks. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
